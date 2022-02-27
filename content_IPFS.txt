@@ -1,0 +1,33 @@
+Header-We adapt,So you don't need to buy
+We us IPFS protocol and peer-to-peer network.For storing and sharing your data in a distributed file system.A peer-to-peer hypermedia protocol
+designed to preserve and grow humanity's knowledge
+by making the web upgradeable, resilient, and more open.
+2 block- Be with us or Be one of us
+
+ 
+                                      Blocks
+
+                                      
+What is IPFS
+IPFS is a peer-to-peer (p2p) storage network.
+Content is accessible through peers located anywhere in the world, that might relay information, store it, or do both.
+IPFS knows how to find what you ask for using its content address rather than its location.                 
+(a button-learn more)
+
+
+                                            Why us 
+
+
+
+Store and sync
+Keep all your files securely stored, up to date, and accessible from any device.
+
+
+Share
+Use World fastest File Sharing system.That can Quickly send any file—big or small—to anyone, even if they don’t have an account.
+
+Stay secure
+Full-proof security is ensured through features like blockchain technology and device authentication
+
+Collaborate
+Manage tasks, track file updates, and stay in sync with your teams and clients.
