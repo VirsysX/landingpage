@@ -16,6 +16,17 @@ const Line = ({ txt = "" }) => {
   );
 };
 
+/*TODO
+navbar
+btn
+list
+subject
+cta
+card
+imageBottomblur
+
+ */
+
 const Block = ({ e, center }) => {
   const H1 = ({ txt }) => (
     <h1
@@ -39,9 +50,9 @@ const Block = ({ e, center }) => {
 
   console.log(e);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 gap-y-6 min-h-[80vh]">
       
-        <div className={`col-span-2 md:col-span-1 ${e.left.h1 ? "-order-1" : "order-1"} col  space-y-2 justify-center  ${
+        <div className={`col-span-2 md:col-span-1 order-1 col  space-y-2 justify-center  ${
           e.left.img ? "items-center " : "items-start"
         }`}>
           {e.left.h1 && <H1 txt={e.left.h1} />}
@@ -55,7 +66,7 @@ const Block = ({ e, center }) => {
         
       </div>
       <div
-        className={`col-span-2 md:col-span-1 ${e.right.h1 ? "-order-1" : "order-1"} col space-y-2 justify-center  ${
+        className={`col-span-2 md:col-span-1  col space-y-2 justify-center md:order-1 ${ e.right.h1 ? "" : "order-1" }  ${
           e.right.img ? "items-center " : "items-start"
         }`}
       >
