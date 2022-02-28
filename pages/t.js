@@ -45,14 +45,15 @@ const Block = ({ e, center }) => {
       } md:row space-x-4  center w-full min-h-screen`}
     >
       <div className={`col space-y-2 center w-full my-5 md:w-1/2`}>
-        <div className={` flex-[0_0_50%] max-w-2xl`}>
+        <div
+          className={` flex-[0_0_50%] max-w-2xl`}
+        >
           {e.left.h1 && <H1 txt={e.left.h1} />}
           {e.left.p && <P txt={e.left.p} />}
           {e.left.img && (
             <div className="aspect-[4/3]">
-              <div>
-                <Image src={e.left.img[0]} alt="ll" />
-              </div>
+              <div><Image src={e.left.img[0]} alt="ll" /></div>
+              
             </div>
           )}
         </div>
@@ -76,26 +77,18 @@ const Block = ({ e, center }) => {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen min-w-full overflow-scroll">
-      <div className="fixed inset-0 w-full min-h-full">
-        <video src="/bg.mp4" className="min-w-full min-h-screen" muted={true} loop autoPlay>
-          </video>
-        </div>
-      <div className="absolute inset-0 w-full min-h-full">
-        <div className="container mx-auto px-12 col center space-y-3 prose prose-h1:my-2 min-w-full">
-          {content.blocks.map((e, i) => (
-            <div key={i} className="row center w-full flex-wrap">
-              {e.blocks == undefined && <Block e={e} />}
+    <div className="container mx-auto px-12 col center space-y-3 prose prose-h1:my-2 min-w-full">
+      {content.blocks.map((e, i) => (
+        <div key={i} className="row center w-full flex-wrap">
+          {e.blocks == undefined && <Block e={e} />}
 
-              {e.blocks != undefined &&
-                e.centerTxt != undefined &&
-                e.blocks.map((ex, ix) => (
-                  <Block key={ix} e={ex} center={<h1>{e.centerTxt}</h1>} />
-                ))}
-            </div>
-          ))}
+          {e.blocks != undefined &&
+            e.centerTxt != undefined &&
+            e.blocks.map((ex, ix) => (
+              <Block key={ix} e={ex} center={<h1>{e.centerTxt}</h1>} />
+            ))}
         </div>
-      </div>
+      ))}
     </div>
   );
 }
