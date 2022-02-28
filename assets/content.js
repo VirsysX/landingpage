@@ -6,7 +6,7 @@ export const content = {
     {
       type: "header",
       left: {
-        h1: "We adapt,So you don't need to buy",
+        h1: "We adapt <br />So you don't need to buy",
         p: "We us IPFS protocol and peer-to-peer network.For storing and sharing your data in a distributed file system.A peer-to-peer hypermedia protocol designed to preserve and grow humanity's knowledge  by making the web upgradeable, resilient, and more open.",
         btn: ["Be with us", "Be one of us"],
       },
