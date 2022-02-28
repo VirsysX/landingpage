@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { content } from "../assets/content";
-
+import { Fragment } from "react/cjs/react.production.min";
 const Line = ({ txt = "" }) => {
   return (
     <>
@@ -39,33 +39,30 @@ const Block = ({ e, center }) => {
 
   console.log(e);
   return (
-    <div
-      className={`${
-        e.left.h1 ? "col" : "col-re"
-      } md:row space-x-4  center w-full min-h-screen`}
-    >
-      <div className={`col space-y-2 center w-full my-5 md:w-1/2`}>
-        <div className={` flex-[0_0_50%] max-w-2xl`}>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      
+        <div className={`col-span-2 md:col-span-1 ${e.left.h1 ? "-order-1" : "order-1"} col  space-y-2 justify-center  ${
+          e.left.img ? "items-center " : "items-start"
+        }`}>
           {e.left.h1 && <H1 txt={e.left.h1} />}
           {e.left.p && <P txt={e.left.p} />}
           {e.left.img && (
-            <div className="aspect-[4/3]">
-              <div>
+            <div className="w-[70%]">
                 <Image src={e.left.img[0]} alt="ll" />
-              </div>
+              
             </div>
           )}
-        </div>
+        
       </div>
       <div
-        className={`col space-y-2 justify-center  ${
+        className={`col-span-2 md:col-span-1 ${e.right.h1 ? "-order-1" : "order-1"} col space-y-2 justify-center  ${
           e.right.img ? "items-center " : "items-start"
-        } flex-1 my-5 max-w-2xl px-`}
+        }`}
       >
         {e.right.h1 && <H1 txt={e.right.h1} />}
         {e.right.p && <P txt={e.right.p} />}
         {e.right.img && (
-          <div className="aspect-[4/3]">
+          <div className="w-[70%]">
             <Image src={e.right.img[0]} alt="ll" />
           </div>
         )}
@@ -76,15 +73,12 @@ const Block = ({ e, center }) => {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen min-w-full overflow-scroll">
-      <div className="fixed inset-0 w-full min-h-full">
-        <video src="/bg.mp4" className="min-w-full min-h-screen" muted={true} loop autoPlay>
-          </video>
-        </div>
+    <div className="relative bg-black min-h-screen min-w-full overflow-y-scroll">
+      
       <div className="absolute inset-0 w-full min-h-full">
-        <div className="container mx-auto px-12 col center space-y-3 prose prose-h1:my-2 min-w-full">
+        <div className="container mx-auto px-12  prose prose-h1:my-2 min-w-full">
           {content.blocks.map((e, i) => (
-            <div key={i} className="row center w-full flex-wrap">
+            <Fragment key={i}>
               {e.blocks == undefined && <Block e={e} />}
 
               {e.blocks != undefined &&
@@ -92,7 +86,8 @@ export default function Home() {
                 e.blocks.map((ex, ix) => (
                   <Block key={ix} e={ex} center={<h1>{e.centerTxt}</h1>} />
                 ))}
-            </div>
+            
+            </Fragment>
           ))}
         </div>
       </div>
