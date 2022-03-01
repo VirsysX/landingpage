@@ -18,6 +18,8 @@
   .center{
     @apply justify-center items-center
   }
-  
+  p{
+    @apply text-white
+  }
 
 }
