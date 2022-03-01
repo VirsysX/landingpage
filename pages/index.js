@@ -121,7 +121,7 @@ const CTA = ({ data,cls='' }) => {
   const content = data.content;
   return (
     <div
-      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/40 ${cls} ${
+      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/30 ${cls} ${
         data.margin && "-mt-1/2"
       }`}
     >
