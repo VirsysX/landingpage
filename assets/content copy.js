@@ -12,10 +12,10 @@ export const content = {
   util: {
     navbar: {
       left: {
-        txt: Virsys,
+        txt: "Virsys",
         logo: logo,
       },
-      middle: [Home, Service, Robotics, Project, Contac],
+      middle: ["Home","Services","Robotics","Project","Contact"],
       right: "search",
     },
   },
@@ -44,6 +44,18 @@ export const content = {
         right: {
           p: "Felis augue donec aenean enim malesuada vitae sapien. Aliquet enim a tristique curae porta auctor sollicitudin senectus consectetur. Dolor ultricies feugiat augue faucibus justo molestie plated congue. ",
         },
+      },
+    },
+    {
+      type: "grid",
+
+      right: {
+        subject:"SECURE DATA",
+        h1: "Next generation platform for secure data by Al",
+        list:["We always focus on technical excellence Wherever you're going"," We bring ideas and excitement", "We're consultants, guides, and partners for brands"]
+      },
+      left: {
+        img: [robotHand],
       },
     },
     
