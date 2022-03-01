@@ -1,9 +1,12 @@
 import logo from "./logo.png";
-import robotImg from "./robot-removebg-preview.png";
+import robotImg from "./robot.png";
 import robotHand from "./robot_hand-removebg-preview.png";
 import robotTab from "./tab_robot-removebg-preview.png"
+import card1Ico from "./bug-removebg-preview.png"
 import card2Ico from "./remove-removebg-preview.png"
 import card3Ico from "./icon3-removebg-preview.png"
+import card4Ico from "./icon4-removebg-preview.png"
+import pics from "./pic.png"
 
 export const content = {
   util: {
@@ -43,19 +46,7 @@ export const content = {
         },
       },
     },
-    {
-      type: "grid",
-
-      right: {
-        subject:"SECURE DATA",
-        h1: "Next generation platform for secure data by Al",
-        list: ["We always focus on technical excellence", "Wherever you're going, we bring ideas and excitement", "We're consultants, guides, and partners for brands"],
-        btn:["Learn More"]
-      },
-      left: {
-        img: [robotHand],
-      },
-    },
+    
     {
       type: "grid",
       left: {
@@ -81,9 +72,42 @@ export const content = {
       type:"cards",
       cards:[
         {
-          img:[]
-        }
+          img:[card1Ico],
+          h1:"Robotic Automation",
+          p:"Robotic process automation (RPA) is a software technology that makes it easy to build, deploy, and manage software robots that emulate humans actions interacting  with digital systems and software. "
+
+        },
+        {
+          img:[card2Ico],
+          h1:"Predictive Analytics",
+          p:"Analytics Needs With Actionable Insights. Inquire With Us Now! Get the scale needed to meet your business need and make informed decisions. Inquire now! Create Informed Decisions. Real-Time Processing."
+
+        },
+        {
+          img:[card3Ico],
+          h1:"Deep Learning",
+          p:"Deep learning is a type of machine learning and artificial intelligence (AI) that imitates the way humans gain certain types of knowledge. While traditional machine learning algorithms are linear."
+          
+        },
+        {
+          img:[card4Ico],
+          h1:"Data Mining",
+          p:" Data mining, also known as knowledge discovery in data (KDD), is the process of uncovering patterns and other valuable information from large data sets. Data mining has improved."
+
+        },
       ]
-    }
+    },{
+      type: "grid",
+
+      right: {
+        subject:"WHO WE ARE",
+        h1: "We specialise in Serving businesses by hard implementing AI",
+        counts:[{h1:"25",p:"Years of exprience"},{h1:"10",p:"Most awarded"},]
+      },
+      left: {
+        img: [pics],
+      },
+    },
+
   ],
 };
