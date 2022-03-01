@@ -7,7 +7,7 @@ import card2Ico from "./remove-removebg-preview.png"
 import card3Ico from "./icon3-removebg-preview.png"
 import card4Ico from "./icon4-removebg-preview.png"
 import pics from "./pic.png"
-
+import {IoLogoFacebook,IoLogoInstagram,IoLogoTwitter,IoLogoGithub} from "react-icons/io"
 export const content = {
   util: {
     navbar: {
@@ -18,6 +18,35 @@ export const content = {
       middle: ["Home","Services","Robotics","Project","Contact"],
       right: "search",
     },
+    footer:{
+      left:{
+        txt: "Virsys",
+        logo: logo,
+      },
+      middle:{
+        email:"support@virsys.com",
+        tel:"+880 12345 67891"
+      },
+      right:{
+        link:["Company","Service","Contact Us", "Privacy Policy","Terms of Use"],
+        rights:"© Robotic (AI) ALL Right Reserved",
+        icons:[IoLogoFacebook,IoLogoInstagram,IoLogoTwitter,IoLogoGithub]
+
+      },
+      cta: {
+        type: "cta",
+        margin: true,
+        content: {
+          type: "grid",
+          left: {
+            h1: "Tapping Intelligence Through Talent.",
+          },
+          right: {
+            p: "Felis augue donec aenean enim malesuada vitae sapien. Aliquet enim a tristique curae porta auctor sollicitudin senectus consectetur. Dolor ultricies feugiat augue faucibus justo molestie plated congue. ",
+          },
+        },
+      },
+    }
   },
 
   blocks: [

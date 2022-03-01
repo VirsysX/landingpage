@@ -3,7 +3,13 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { content } from "../assets/content copy";
 import { Fragment } from "react/cjs/react.production.min";
-import { SearchIcon, ArrowRightIcon } from "@heroicons/react/outline";
+import {
+  SearchIcon,
+  ArrowRightIcon,
+  MailIcon,
+  PhoneIcon,
+} from "@heroicons/react/outline";
+import { IconContext } from "react-icons";
 
 const Line = ({ txt = "" }) => {
   return (
@@ -55,7 +61,8 @@ const Navbar = ({ data }) => {
         ))}
       </div>
       <div className="row cernter hidden md:flex">
-        <div className="border border-transparent group rounded-3xl focus:border-white px-1 pl-2 py-1 row center space-x-1">
+        <div className="bg-gradient-to-bl from-[#07dab5] to-[#0499e5] p-[] row center">
+        <div className="border w-full h-full bg-black border-transparent group rounded-3xl focus:border-white px-1 pl-2 py-1 row center space-x-1">
           <input
             className="bg-transparent h-2 w-[90%] group-focus:border-white focus:outline-none"
             type="text"
@@ -64,7 +71,7 @@ const Navbar = ({ data }) => {
             <SearchIcon className="w-3 h-3" />
           </button>
         </div>
-      </div>
+      </div></div>
     </div>
   );
 };
@@ -110,11 +117,11 @@ const Subject = ({ txt, p = false }) => {
     </p>
   );
 };
-const CTA = ({ data }) => {
+const CTA = ({ data,cls='' }) => {
   const content = data.content;
   return (
     <div
-      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/40 ${
+      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/70 ${cls} ${
         data.margin && "-mt-1/2"
       }`}
     >
@@ -279,10 +286,21 @@ const Block = ({ e, center }) => {
                 {e.right.subject && <Subject txt={e.right.subject} />}
                 {e.right.h1 && <H1 txt={e.right.h1} />}
                 {e.right.p && <P txt={e.right.p} />}
-                {e.right.btn && e.right.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
+                {e.right.btn &&
+                  e.right.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
                 {e.right.list && <List items={e.right.list} />}
-                {e.right.counts && ( <div className="row justify-start space-x-8 items-center"> {e.right.counts.map((ed, id) => ( <Counter data={ed} key={id} />  ))}
-                {e.right.imgx && ( <div className="row space-x-8 center">  {e.right.imgx.map((ed, id) => ( <ImageBlur img={ed} txt="Robot" key={id} />  ))}    
+                {e.right.counts && (
+                  <div className="row justify-start space-x-8 items-center">
+                    {" "}
+                    {e.right.counts.map((ed, id) => (
+                      <Counter data={ed} key={id} />
+                    ))}
+                    {e.right.imgx && (
+                      <div className="row space-x-8 center">
+                        {" "}
+                        {e.right.imgx.map((ed, id) => (
+                          <ImageBlur img={ed} txt="Robot" key={id} />
+                        ))}
                       </div>
                     )}
                     {e.right.imgx && console.log(e.right.imgx)}
@@ -306,19 +324,72 @@ const Block = ({ e, center }) => {
   );
 };
 
-export default function Home() {
+const Footer = ({ data }) => {
   return (
-    <div className="relative bg-black min-h-screen min-w-full overflow-y-scroll">
-      <div className="absolute inset-0 w-full min-h-full">
-        <div className="container mx-auto px-6 md:px-12 prose prose-h1:my-2 min-w-full">
-          <Navbar data={content.util.navbar} />
-          {content.blocks.map((e, i) => (
-            <div className="row center min-h-full min-w-full" key={i}>
-              <Block e={e} />
-            </div>
+    <div className="col bg-gray-900 center w-full mt-20">
+      {data.cta && <CTA data={data.cta} cls="mx-16 -mt-16" />}
+    <div className="col w-full md:row font-semi justify-around items-center md:px-4 py-5 pb-8">
+      <div className="row center mb-7  md:mb-0 space-x-2 md:mr-5">
+        <div className="row center w-8 h-8 overflow-hidden">
+          <Image
+            className="w-full h-full"
+            src={data.left.logo}
+            alt="logo"
+            priority={true}
+          />
+        </div>
+        <h1 className="text-lg font-bold cursor-pointer">{data.left.txt}</h1>
+      </div>
+      <div className="col center space-y-2 text-base text-white">
+        <div className="row center space-x-2">
+          <MailIcon className="w-6 h-6 text-white" /> <p className="my-4">{data.middle.email}</p>
+        </div>
+        <div className="row center space-x-2">
+          <PhoneIcon className="w-6 h-6 text-white" /> <p className="my-4">{data.middle.tel}</p>
+        </div>
+      </div>
+      <div className="col md:flex-[0_0_54%] justify-center items-center md:items-end md:space-x-2 md:space-y-1 ">
+        <div className="col center md:row md:justify-end  md:space-x-4">
+          {data.right.link.map((e, i) => (
+            <p key={i} className="row cursor-pointer my-4 hover:text-green-500 center">
+              {e}
+            </p>
           ))}
+        </div>
+        <div className="hidden w-full h-[1px] md:flex bg-gray-700"></div>
+        <div className="col-re md:row md:justify-between items-center w-full">
+          <p className="row my-4 center">{data.right.rights}</p>
+          <div className="row center mb-5 md:mb-0 space-x-3">
+            {data.right.icons.map((E, i) => (
+              <div key={i} className="row center w-6 h-6">
+                {<E />}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
+    </div>
+  );
+};
+
+export default function Home() {
+  return (
+    <IconContext.Provider value={{ className: "text-[#08f89f] w-9 h-9" }}>
+      <div className="relative bg-black min-h-screen min-w-full overflow-y-scroll">
+        <div className="absolute inset-0 w-full min-h-full">
+          <div className="container mx-auto px-6 md:px-12 prose prose-h1:my-2 min-w-full">
+            <Navbar data={content.util.navbar} />
+            {content.blocks.map((e, i) => (
+              <div className="row center min-h-full min-w-full" key={i}>
+                <Block e={e} />
+              </div>
+            ))}
+           
+          </div> 
+          <Footer data={content.util.footer} />
+        </div>
+      </div>
+    </IconContext.Provider>
   );
 }
