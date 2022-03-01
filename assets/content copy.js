@@ -160,7 +160,7 @@ export const content = {
         
       },
       right: {
-        imgx: [robotImg],
+        img: [robotImg],
       },
     },
 

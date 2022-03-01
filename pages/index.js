@@ -297,7 +297,7 @@ const Block = ({ e, center }) => {
                     ))}
                     {e.right.imgx && (
                       <div className="row space-x-8 center">
-                        {" "}
+                        
                         {e.right.imgx.map((ed, id) => (
                           <ImageBlur img={ed} txt="Robot" key={id} />
                         ))}
