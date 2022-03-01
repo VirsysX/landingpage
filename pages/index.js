@@ -88,7 +88,10 @@ const List = ({ items }) => {
   return (
     <div className="col items-start justify-center space-y-1">
       {items.map((e, i) => (
-        <div key={i} className="row space-x-3  items-start justify-start text-lg font-bold">
+        <div
+          key={i}
+          className="row space-x-3  items-start justify-start text-lg font-bold"
+        >
           <p className="text-green-500 font-semibold">O</p> <p>{e}</p>
         </div>
       ))}
@@ -99,7 +102,9 @@ const List = ({ items }) => {
 const Subject = ({ txt, p = false }) => {
   return (
     <p
-      className={`txt-lg border-2 my-1 border-black ${!p && "border-l-[#08f498]"} text-[#08f498] py-0 h-5 tracking-wider row center pl-2`}
+      className={`txt-lg border-2 my-1 font-semibold border-black ${
+        !p && "border-l-[#08f498]"
+      } text-[#08f498] py-0 h-5 tracking-wider row center pl-2`}
     >
       {txt}
     </p>
@@ -143,13 +148,15 @@ const CTA = ({ data }) => {
   );
 };
 
-const Card = ({ content }) => {
+const Card = ({ content, cls }) => {
   return (
-    <div className="col center space-y-5">
-      <div className="w-5 h-5 overflow-hidden row center">
-        <Image className="w-full h-full" src={content.img} alt="icon" />
-        <h1 className="text-lg text-[#08f89f]">{content.h1}</h1>
-        <p className="text-base">{content.p}</p>
+    <div className={`${cls}`}>
+      <div className={` col center space-y-3`}>
+        <div className="w-24 h-20 overflow-hidden row center">
+          <Image className="w-full h-full" src={content.img[0]} alt="icon" />
+        </div>
+        <h1 className="text-lg text-center text-[#08f89f]">{content.h1}</h1>
+        <p className="text-sm md:text-base text-center">{content.p}</p>
       </div>
     </div>
   );
@@ -168,7 +175,7 @@ const ImageBlur = ({ img, txt }) => {
   return (
     <div className="relative w-full h-full">
       <div className="row center w-[70%] h-full overflow-hidden absolute inset-0 z-[2]">
-        <Image className="w-full h-full" src={image} alt="image" />
+        <Image className="w-full h-full" src={img} alt="image" />
       </div>
       <div className="bg-white/60 backdrop-blur-lg w-full py-4 px-2 row center absolute bottom-0 z-[4]">
         <h1 className="text-lg ">{txt}</h1>
@@ -178,7 +185,7 @@ const ImageBlur = ({ img, txt }) => {
 };
 
 const Block = ({ e, center }) => {
-  const H1 = ({ txt,cls=null }) => (
+  const H1 = ({ txt, cls = null }) => (
     <h1
       className={`${
         e.type == "header" &&
@@ -198,7 +205,6 @@ const Block = ({ e, center }) => {
     </p>
   );
 
-  console.log(e);
   return (
     <Fragment>
       {e.type == "block" ? (
@@ -208,7 +214,9 @@ const Block = ({ e, center }) => {
               {e.content.center.subject_p && (
                 <Subject txt={e.content.center.subject_p} p={true} />
               )}
-              {e.content.center.h1 && <H1 txt={e.content.center.h1} cls="text-center" />}
+              {e.content.center.h1 && (
+                <H1 txt={e.content.center.h1} cls="text-center" />
+              )}
             </div>
           )}{" "}
         </Fragment>
@@ -216,6 +224,15 @@ const Block = ({ e, center }) => {
         ""
       )}
       {e.type == "cta" ? <CTA data={e} /> : ""}
+      {e.type == "cards" ? (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-14 gap-y-10">
+          {e.cards.map((card, ins) => (
+            <Card content={card} key={ins} cls="col-span-1" />
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
       {e.type == "grid" ? (
         <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 my-14 gap-y-10 min-h-[120vh] md:min-h-full">
           {e.left && (
@@ -231,8 +248,20 @@ const Block = ({ e, center }) => {
               {e.left.btn &&
                 e.left.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
               {e.left.list && <List items={e.left.list} />}
-              {e.left.counts && <div className="row justify-start space-x-8 items-center">{
-                e.left.counts.map((ed, id) =><Counter data={ed} key={id}  />)}</div>}
+              {e.left.counts && (
+                <div className="row justify-start space-x-8 items-center">
+                  {e.left.counts.map((ed, id) => (
+                    <Counter data={ed} key={id} />
+                  ))}
+                </div>
+              )}
+              {e.left.imgx && (
+                <div className="row space-x-8 center">
+                  {e.left.imgx.map((ed, id) => (
+                    <ImageBlur img={ed} txt="Robot" key={id} />
+                  ))}
+                </div>
+              )}
               {e.left.img && (
                 <div className="w-[70%]">
                   <Image src={e.left.img[0]} alt="ll" />
@@ -243,7 +272,7 @@ const Block = ({ e, center }) => {
           {e.right && (
             <div
               className={`col-span-2 md:col-span-1  col space-y-2 justify-center md:order-1  ${
-                e.right.h1 ? "" : "order-1" 
+                e.right.h1 ? "" : "order-1"
               }  ${e.right.img ? "items-center " : "items-start"}`}
             >
               {e.right.subject && <Subject txt={e.right.subject} />}
@@ -252,8 +281,21 @@ const Block = ({ e, center }) => {
               {e.right.btn &&
                 e.right.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
               {e.right.list && <List items={e.right.list} />}
-              {e.right.counts && <div  className="row justify-start space-x-8 items-center">{
-                e.right.counts.map((ed, id)=> <Counter data={ed} key={id} />)}</div>}
+              {e.right.counts && (
+                <div className="row justify-start space-x-8 items-center">
+                  {e.right.counts.map((ed, id) => (
+                    <Counter data={ed} key={id} />
+                  ))}
+                  {e.right.imgx && (
+                    <div className="row space-x-8 center">
+                      {e.right.imgx.map((ed, id) => (
+                        <ImageBlur img={ed} txt="Robot" key={id} />
+                      ))}
+                    </div>
+                  )}
+                  {e.right.imgx && console.log(e.right.imgx)}
+                </div>
+              )}
 
               {e.right.img && (
                 <div className="w-[70%]">

@@ -120,6 +120,18 @@ export const content = {
         img: [pics],
       },
     },
+    {
+      type: "grid",
+      left: {
+        subject: "MEET THE TEAM",
+        h1: "We are intelligent in action.",
+        p: "Our leadership team brings many years of experience in Artificial Intelligence and technology innovation.",
+        
+      },
+      right: {
+        imgx: [robotImg],
+      },
+    },
 
   ],
 };
