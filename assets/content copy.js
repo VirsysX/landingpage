@@ -86,6 +86,7 @@ export const content = {
       },
       left: {
         img: [robotHand],
+        highAspect:true
       },
     },
     

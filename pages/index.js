@@ -271,7 +271,7 @@ const Block = ({ e, center }) => {
                   </div>
                 )}
                 {e.left.img && (
-                  <div className="w-[70%]">
+                  <div className={`w-[70%] ${e.left.highAspect ? "w-[85%] -ml-[35%]" : "w-[70%]"}`}>
                     <Image src={e.left.img[0]} alt="ll" />
                   </div>
                 )}
@@ -308,7 +308,7 @@ const Block = ({ e, center }) => {
                 )}
 
                 {e.right.img && (
-                  <div className="w-[70%]">
+                  <div className={`w-[70%] ${e.right.highAspect ? "w-[85%] -ml-[35%]" : "w-[70%]"}`}>
                     <Image src={e.right.img[0]} alt="ll" />
                   </div>
                 )}
