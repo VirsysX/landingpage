@@ -64,7 +64,7 @@ const Navbar = ({ data }) => {
         <div className="bg-gradient-to-bl from-[#07dab5] to-[#0499e5] p-[2px] rounded-3xl row center">
         <div className="border w-full h-full bg-black border-transparent group  focus:border-white rounded-3xl px-1 pl-2 py-1 row center space-x-1">
           <input
-            className="bg-transparent h-2 w-[90%] group-focus:border-white focus:outline-none"
+            className="bg-transparent h-6 w-[90%] text-white group-focus:border-white focus:outline-none"
             type="text"
           />
           <button className="btn btn-circle btn-xs bg-gradient-to-bl from-[#07dab5] to-[#0499e5]">
@@ -121,7 +121,7 @@ const CTA = ({ data,cls='' }) => {
   const content = data.content;
   return (
     <div
-      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/70 ${cls} ${
+      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/40 ${cls} ${
         data.margin && "-mt-1/2"
       }`}
     >
@@ -159,7 +159,7 @@ const Card = ({ content, cls }) => {
   return (
     <div className={`${cls}`}>
       <div className={` col center space-y-3`}>
-        <div className="w-24 h-20 overflow-hidden row center">
+        <div className="w-24 h-20 overflow-hidden hover:scale-125 transition-all cursor-pointer row center">
           <Image className="w-full h-full" src={content.img[0]} alt="icon" />
         </div>
         <h1 className="text-lg text-center text-[#08f89f]">{content.h1}</h1>
@@ -327,7 +327,7 @@ const Block = ({ e, center }) => {
 const Footer = ({ data }) => {
   return (
     <div className="col bg-gray-900 center w-full mt-20">
-      {data.cta && <CTA data={data.cta} cls="mx-16 -mt-16" />}
+      {data.cta && <CTA data={data.cta} cls="mx-16 -mt-20" />}
     <div className="col w-full md:row font-semi justify-around items-center md:px-4 py-5 pb-8">
       <div className="row center mb-7  md:mb-0 space-x-2 md:mr-5">
         <div className="row center w-8 h-8 overflow-hidden">
@@ -378,7 +378,7 @@ export default function Home() {
     <IconContext.Provider value={{ className: "text-[#08f89f] w-9 h-9" }}>
       <div className="relative bg-black min-h-screen min-w-full overflow-y-scroll">
         <div className="absolute inset-0 w-full min-h-full">
-          <div className="container mx-auto px-6 md:px-12 prose prose-h1:my-2 min-w-full">
+          <div className="container mx-auto my-6 px-6 md:px-12 prose prose-h1:my-2 min-w-full">
             <Navbar data={content.util.navbar} />
             {content.blocks.map((e, i) => (
               <div className="row center min-h-full min-w-full" key={i}>
