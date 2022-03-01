@@ -1,7 +1,7 @@
 import logo from "./logo.png";
 import robotImg from "./robot.png";
-import robotHand from "./robot_hand-removebg-preview.png";
-import robotTab from "./tab_robot-removebg-preview.png"
+import robotHand from "./robothand.png";
+import robotTab from "./robot_tab.png"
 import card1Ico from "./bug-removebg-preview.png"
 import card2Ico from "./remove-removebg-preview.png"
 import card3Ico from "./icon3-removebg-preview.png"
@@ -32,8 +32,7 @@ export const content = {
       right: {
         img: [robotImg],
       },
-    },
-    {
+      cta: {
       type: "cta",
       margin: true,
       content: {
@@ -46,6 +45,8 @@ export const content = {
         },
       },
     },
+    },
+   
     {
       type: "grid",
 

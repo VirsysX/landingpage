@@ -114,7 +114,7 @@ const CTA = ({ data }) => {
   const content = data.content;
   return (
     <div
-      className={`row center px-4 md:px-3 py-3  backdrop-blur-md bg-[#0c2135]/60 ${
+      className={`row center px-6 md:px-5 py-6  backdrop-blur-3xl bg-[#0c2135]/40 ${
         data.margin && "-mt-1/2"
       }`}
     >
@@ -234,76 +234,70 @@ const Block = ({ e, center }) => {
         ""
       )}
       {e.type == "grid" ? (
-        <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 my-14 gap-y-10 min-h-[120vh] md:min-h-full">
-          {e.left && (
-            <div
-              className={`col-span-2 md:col-span-1 order-1 col  md:space-y-5 space-y-3 justify-center  ${
-                e.left.img ? "items-center " : "items-start"
-              }`}
-            >
-              {" "}
-              {e.left.subject && <Subject txt={e.left.subject} />}
-              {e.left.h1 && <H1 txt={e.left.h1} />}
-              {e.left.p && <P txt={e.left.p} />}
-              {e.left.btn &&
-                e.left.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
-              {e.left.list && <List items={e.left.list} />}
-              {e.left.counts && (
-                <div className="row justify-start space-x-8 items-center">
-                  {e.left.counts.map((ed, id) => (
-                    <Counter data={ed} key={id} />
-                  ))}
-                </div>
-              )}
-              {e.left.imgx && (
-                <div className="row space-x-8 center">
-                  {e.left.imgx.map((ed, id) => (
-                    <ImageBlur img={ed} txt="Robot" key={id} />
-                  ))}
-                </div>
-              )}
-              {e.left.img && (
-                <div className="w-[70%]">
-                  <Image src={e.left.img[0]} alt="ll" />
-                </div>
-              )}
-            </div>
-          )}
-          {e.right && (
-            <div
-              className={`col-span-2 md:col-span-1  col space-y-2 justify-center md:order-1  ${
-                e.right.h1 ? "" : "order-1"
-              }  ${e.right.img ? "items-center " : "items-start"}`}
-            >
-              {e.right.subject && <Subject txt={e.right.subject} />}
-              {e.right.h1 && <H1 txt={e.right.h1} />}
-              {e.right.p && <P txt={e.right.p} />}
-              {e.right.btn &&
-                e.right.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
-              {e.right.list && <List items={e.right.list} />}
-              {e.right.counts && (
-                <div className="row justify-start space-x-8 items-center">
-                  {e.right.counts.map((ed, id) => (
-                    <Counter data={ed} key={id} />
-                  ))}
-                  {e.right.imgx && (
-                    <div className="row space-x-8 center">
-                      {e.right.imgx.map((ed, id) => (
-                        <ImageBlur img={ed} txt="Robot" key={id} />
-                      ))}
-                    </div>
-                  )}
-                  {e.right.imgx && console.log(e.right.imgx)}
-                </div>
-              )}
+        <div className="col center md:-space-y-5 -space-y-12 my-14 w-full h-full">
+          <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 my-2 gap-y-10 min-h-[120vh] md:min-h-full">
+            {e.left && (
+              <div
+                className={`col-span-2 md:col-span-1 order-1 col  md:space-y-5 space-y-3 justify-center  ${
+                  e.left.img ? "items-center " : "items-start"
+                }`}
+              >
+                {" "}
+                {e.left.subject && <Subject txt={e.left.subject} />}
+                {e.left.h1 && <H1 txt={e.left.h1} />}
+                {e.left.p && <P txt={e.left.p} />}
+                {e.left.btn &&
+                  e.left.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
+                {e.left.list && <List items={e.left.list} />}
+                {e.left.counts && (
+                  <div className="row justify-start space-x-8 items-center">
+                    {e.left.counts.map((ed, id) => (
+                      <Counter data={ed} key={id} />
+                    ))}
+                  </div>
+                )}
+                {e.left.imgx && (
+                  <div className="row space-x-8 center">
+                    {e.left.imgx.map((ed, id) => (
+                      <ImageBlur img={ed} txt="Robot" key={id} />
+                    ))}
+                  </div>
+                )}
+                {e.left.img && (
+                  <div className="w-[70%]">
+                    <Image src={e.left.img[0]} alt="ll" />
+                  </div>
+                )}
+              </div>
+            )}
+            {e.right && (
+              <div
+                className={`col-span-2 md:col-span-1  col space-y-2 justify-center md:order-1  ${
+                  e.right.h1 ? "" : "order-1"
+                }  ${e.right.img ? "items-center " : "items-start"}`}
+              >
+                {e.right.subject && <Subject txt={e.right.subject} />}
+                {e.right.h1 && <H1 txt={e.right.h1} />}
+                {e.right.p && <P txt={e.right.p} />}
+                {e.right.btn && e.right.btn.map((ek, i) => <Btn txt={ek} key={i} />)}
+                {e.right.list && <List items={e.right.list} />}
+                {e.right.counts && ( <div className="row justify-start space-x-8 items-center"> {e.right.counts.map((ed, id) => ( <Counter data={ed} key={id} />  ))}
+                {e.right.imgx && ( <div className="row space-x-8 center">  {e.right.imgx.map((ed, id) => ( <ImageBlur img={ed} txt="Robot" key={id} />  ))}    
+                      </div>
+                    )}
+                    {e.right.imgx && console.log(e.right.imgx)}
+                  </div>
+                )}
 
-              {e.right.img && (
-                <div className="w-[70%]">
-                  <Image src={e.right.img[0]} alt="ll" />
-                </div>
-              )}
-            </div>
-          )}
+                {e.right.img && (
+                  <div className="w-[70%]">
+                    <Image src={e.right.img[0]} alt="ll" />
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          {e.cta ? <CTA data={e.cta} /> : ""}
         </div>
       ) : (
         ""
