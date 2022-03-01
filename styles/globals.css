@@ -21,5 +21,8 @@
   p{
     @apply text-white
   }
+  h1{
+    @apply text-white
+  }
 
 }
