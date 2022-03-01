@@ -61,8 +61,8 @@ const Navbar = ({ data }) => {
         ))}
       </div>
       <div className="row cernter hidden md:flex">
-        <div className="bg-gradient-to-bl from-[#07dab5] to-[#0499e5] p-[] row center">
-        <div className="border w-full h-full bg-black border-transparent group rounded-3xl focus:border-white px-1 pl-2 py-1 row center space-x-1">
+        <div className="bg-gradient-to-bl from-[#07dab5] to-[#0499e5] p-[2px] rounded-3xl row center">
+        <div className="border w-full h-full bg-black border-transparent group  focus:border-white rounded-3xl px-1 pl-2 py-1 row center space-x-1">
           <input
             className="bg-transparent h-2 w-[90%] group-focus:border-white focus:outline-none"
             type="text"
