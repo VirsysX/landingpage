@@ -15,7 +15,7 @@ export const content = {
         txt: "Virsys",
         logo: logo,
       },
-      middle: ["Home","Services","Robotics","Project","Contact"],
+      middle: [{title:"Home",link:"/"},{title:"Project",link:"https://virsysx.cf/"},{title:"About",link:"/about"},{title:"Contact",link:"/contact"}],
       right: "search",
     },
     footer:{
@@ -24,7 +24,7 @@ export const content = {
         logo: logo,
       },
       middle:{
-        email:"support@virsys.com",
+        email:"virsys@pm.me",
         tel:"+880 12345 67891"
       },
       right:{
@@ -42,7 +42,7 @@ export const content = {
             h1: "Tapping Intelligence Through Talent.",
           },
           right: {
-            p: "Felis augue donec aenean enim malesuada vitae sapien. Aliquet enim a tristique curae porta auctor sollicitudin senectus consectetur. Dolor ultricies feugiat augue faucibus justo molestie plated congue. ",
+            p: " Machine Intelligence is the last invention that humanity will ever need to make.-Nick Bostrom ",
           },
         },
       },
@@ -54,7 +54,7 @@ export const content = {
       type: "grid",
       left: {
         subject: "NEXT GENERATION PLATFORM",
-        h1: "Discover Horizon Robotics Al Inference Platform",
+        h1: "Discover Al Inference Platform",
         p: "Robots take operations to the next level. They work hand in hand with humans balancing the imperative for safety with the need for flexibility and productivity.",
         btn: ["Get Started"],
       },
@@ -70,7 +70,7 @@ export const content = {
           h1: "Tapping Intelligence Through Talent.",
         },
         right: {
-          p: "Felis augue donec aenean enim malesuada vitae sapien. Aliquet enim a tristique curae porta auctor sollicitudin senectus consectetur. Dolor ultricies feugiat augue faucibus justo molestie plated congue. ",
+          p: "Machine Intelligence is the last invention that humanity will ever need to make.-Nick Bostrom",
         },
       },
     },
@@ -145,7 +145,7 @@ export const content = {
       right: {
         subject:"WHO WE ARE",
         h1: "We specialise in Serving businesses by hard implementing AI",
-        counts:[{h1:"25",p:"Years of exprience"},{h1:"10",p:"Most awarded"},]
+        counts:[{h1:"5",p:"Years of exprience"}]
       },
       left: {
         img: [pics],

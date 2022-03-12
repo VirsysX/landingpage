@@ -10,6 +10,9 @@ import {
   PhoneIcon,
 } from "@heroicons/react/outline";
 import { IconContext } from "react-icons";
+import Link from "next/link";
+import { useRouter } from 'next/router';
+
 
 const Line = ({ txt = "" }) => {
   return (
@@ -36,9 +39,28 @@ imageBottomblur
 
  */
 
-const Navbar = ({ data }) => {
+function NavLink({ href, exact, children,classac, ...props }) {
+  const { pathname } = useRouter();
+  const isActive = exact ? pathname === href : pathname.startsWith(href);
+
+  if (isActive) {
+      props.className += classac;
+  }
+
   return (
-    <div className="row justify-start md:justify-between items-center  md:px-4  mb-5">
+      <Link href={href}>
+          <a {...props}>
+              {children}
+          </a>
+      </Link>
+  );
+}
+
+
+
+export const Navbar = ({ data }) => {
+  return (
+    <div className="row justify-start md:justify-between items-center  w-full md:px-4  mb-5">
       <div className="row center space-x-2 md:mr-5">
         <div className="row center w-8 h-8 overflow-hidden">
           <Image
@@ -51,13 +73,8 @@ const Navbar = ({ data }) => {
         <h1 className="text-lg font-bold cursor-pointer">{data.left.txt}</h1>
       </div>
       <div className="row space-x-6 hidden md:flex flex-1 center">
-        {data.middle.map((e, i) => (
-          <p
-            key={i}
-            className="text-base font-bold cursor-pointer hover:text-green-500"
-          >
-            {e}
-          </p>
+        {data.middle.map((i, e) => (
+         <NavLink key={e} exact href={i.link} className="text-base  no-underline font-bold cursor-pointer hover:text-green-500" classac={" text-teal-300"}>{i.title}</NavLink>
         ))}
       </div>
       <div className="row cernter hidden md:flex">
@@ -376,10 +393,10 @@ const Footer = ({ data }) => {
 export default function Home() {
   return (
     <IconContext.Provider value={{ className: "text-[#08f89f] w-9 h-9" }}>
-      <div className="relative bg-black min-h-screen min-w-full overflow-y-scroll">
+      <div className="relative bg-black h-full w-full">
         <div className="absolute inset-0 w-full min-h-full">
           <div className="container mx-auto my-6 px-6 md:px-12 prose prose-h1:my-2 min-w-full">
-            <Navbar data={content.util.navbar} />
+      
             {content.blocks.map((e, i) => (
               <div className="row center min-h-full min-w-full" key={i}>
                 <Block e={e} />
