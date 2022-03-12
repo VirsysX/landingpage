@@ -79,9 +79,9 @@ export default function About() {
   return (
     <div className="col center mt-6 font-mono text-teal-300 over space-y-4">
       <div className="col center space-y-4 ">
-        <h1 className="md:text-3xl text-2xl">Who We Are</h1>
+        <h1 className="md:text-3xl text-2xl w-[70%] text-center italic">{`"A year spent in artificial intelligence is enough to make one believe in God"`} -<p>Alan Perlis</p></h1>
 
-        <p className="text-lg md:text-xl">Trying Cope with the fast pacing world</p>
+      
       </div>
 
 
