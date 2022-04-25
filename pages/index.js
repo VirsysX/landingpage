@@ -3,6 +3,8 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { content } from "../assets/content copy";
 import { Fragment } from "react/cjs/react.production.min";
+import Fade from 'react-reveal/Fade';
+
 import {
   SearchIcon,
   ArrowRightIcon,
@@ -45,6 +47,7 @@ function NavLink({ href, exact, children,classac, ...props }) {
 
   if (isActive) {
       props.className += classac;
+      //demo
   }
 
   return (
@@ -174,6 +177,7 @@ const CTA = ({ data,cls='' }) => {
 
 const Card = ({ content, cls }) => {
   return (
+    <Fade right>
     <div className={`${cls}`}>
       <div className={` col center space-y-3`}>
         <div className="w-24 h-20 overflow-hidden hover:scale-125 transition-all cursor-pointer row center">
@@ -182,7 +186,7 @@ const Card = ({ content, cls }) => {
         <h1 className="text-lg text-center text-[#08f89f]">{content.h1}</h1>
         <p className="text-sm md:text-base text-center">{content.p}</p>
       </div>
-    </div>
+    </div></Fade>
   );
 };
 
@@ -234,6 +238,7 @@ const Block = ({ e, center }) => {
       {e.type == "block" ? (
         <Fragment>
           {e.content.center && (
+            <Fade top>
             <div className="col center space-y-3 my-10">
               {e.content.center.subject_p && (
                 <Subject txt={e.content.center.subject_p} p={true} />
@@ -241,14 +246,15 @@ const Block = ({ e, center }) => {
               {e.content.center.h1 && (
                 <H1 txt={e.content.center.h1} cls="text-center" />
               )}
-            </div>
+            </div></Fade>
           )}{" "}
         </Fragment>
       ) : (
         ""
       )}
-      {e.type == "cta" ? <CTA data={e} /> : ""}
+      {e.type == "cta" ? <Fade right><CTA data={e} /></Fade>  : ""}
       {e.type == "cards" ? (
+      
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-14 gap-y-10">
           {e.cards.map((card, ins) => (
             <Card content={card} key={ins} cls="col-span-1" />
@@ -258,9 +264,11 @@ const Block = ({ e, center }) => {
         ""
       )}
       {e.type == "grid" ? (
+        
         <div className="col center md:-space-y-5 -space-y-12 my-14 w-full h-full">
           <div className="grid  grid-cols-1 md:grid-cols-2 gap-3 my-2 gap-y-10 min-h-[120vh] md:min-h-full">
             {e.left && (
+              <Fade left>
               <div
                 className={`col-span-2 md:col-span-1 order-1 col  md:space-y-5 space-y-3 justify-center  ${
                   e.left.img ? "items-center " : "items-start"
@@ -292,9 +300,10 @@ const Block = ({ e, center }) => {
                     <Image src={e.left.img[0]} alt="ll" />
                   </div>
                 )}
-              </div>
+              </div></Fade>
             )}
             {e.right && (
+              <Fade right>
               <div
                 className={`col-span-2 md:col-span-1  col space-y-2 justify-center md:order-1  ${
                   e.right.h1 ? "" : "order-1"
@@ -329,10 +338,10 @@ const Block = ({ e, center }) => {
                     <Image src={e.right.img[0]} alt="ll" />
                   </div>
                 )}
-              </div>
+              </div></Fade>
             )}
           </div>
-          {e.cta ? <CTA data={e.cta} /> : ""}
+          {e.cta ? <Fade right> <CTA data={e.cta} /></Fade> : ""}
         </div>
       ) : (
         ""

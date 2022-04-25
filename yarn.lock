@@ -1684,7 +1684,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.8.1:
+prop-types@^15.5.10, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -1726,6 +1726,13 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-reveal@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-reveal/-/react-reveal-1.2.2.tgz#f47fbc44debc4c185ae2163a215a9e822c7adfef"
+  integrity sha512-JCv3fAoU6Z+Lcd8U48bwzm4pMZ79qsedSXYwpwt6lJNtj/v5nKJYZZbw3yhaQPPgYePo3Y0NOCoYOq/jcsisuw==
+  dependencies:
+    prop-types "^15.5.10"
 
 react@17.0.2:
   version "17.0.2"
