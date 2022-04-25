@@ -48,6 +48,7 @@ function NavLink({ href, exact, children,classac, ...props }) {
   if (isActive) {
       props.className += classac;
       //demo
+      //demo 2 
   }
 
   return (
